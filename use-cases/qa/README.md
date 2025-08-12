@@ -219,165 +219,1082 @@ Provide:
 
 ---
 
-## 🤖 Test Automation
+## 🤖 Modern Test Automation with Playwright
 
-### Automation Strategy Templates
-
-#### Test Automation Plan
+### Comprehensive Automation Strategy Framework
 ```
-Create a test automation strategy for [application type] with these characteristics:
+Design a modern test automation strategy for [application type]:
 
-Application Details:
-- Technology stack: [technologies]
-- User base: [size and type]
-- Release frequency: [frequency]
-- Team size: [number]
+Application Architecture:
+- Frontend: [NextJS/React/Vue] with [TypeScript/JavaScript]
+- Backend: [Node.js/Java/.NET] with [REST/GraphQL] APIs
+- Database: [PostgreSQL/MongoDB/Redis]
+- Infrastructure: [AWS/Azure/GCP] with [Docker/Kubernetes]
+- CI/CD: [GitHub Actions/Jenkins/GitLab CI]
 
-Current Testing:
-- Manual testing effort: [hours/release]
-- Pain points: [issues]
-- Coverage gaps: [areas]
+Current State:
+- Manual testing effort: [hours per release]
+- Test coverage: [current percentage]
+- Release frequency: [daily/weekly/monthly]
+- Team composition: [developers/QA/DevOps ratios]
+- Pain points: [specific issues and bottlenecks]
 
-Recommend:
-1. Automation framework selection
-2. Test pyramid strategy (unit/integration/e2e ratios)
-3. Implementation roadmap with phases
-4. ROI projections
-5. Team skill requirements
-6. Maintenance strategy
+Target Strategy:
+1. Test pyramid optimization (70% unit, 20% integration, 10% E2E)
+2. Shift-left testing implementation
+3. Parallel execution and CI/CD integration
+4. Cross-browser and mobile testing
+5. Visual regression testing
+6. Performance testing integration
+7. API contract testing
+8. Security testing automation
+
+Provide:
+- Framework selection rationale (Playwright vs Cypress vs Selenium)
+- Implementation roadmap with phases and timelines
+- ROI calculations and success metrics
+- Team training and skill development plan
+- Maintenance and scaling strategies
+- Tool integration recommendations
 ```
 
-#### Selenium Test Script Generation
+### 🎭 Playwright Automation Examples
+
+#### Modern E2E Testing Framework Setup
 ```
-Generate Selenium WebDriver test script for this scenario:
+Create a comprehensive Playwright testing framework for a NextJS e-commerce application:
 
-Test Case: User login with valid credentials
-Steps:
-1. Navigate to login page
-2. Enter valid email and password
-3. Click login button
-4. Verify successful login (dashboard appears)
-5. Verify user name displayed in header
+Application Features:
+- User authentication (login/register/OAuth)
+- Product catalog with search and filtering
+- Shopping cart and checkout process
+- Payment integration (Stripe)
+- User dashboard and order history
+- Admin panel for product management
+- Real-time notifications via WebSockets
 
-Requirements:
-- Use Python with Selenium WebDriver
-- Include Page Object Model pattern
-- Add explicit waits for elements
-- Include error handling
-- Add logging for debugging
-- Make it data-driven with CSV file
+Framework Requirements:
+- TypeScript for type safety
+- Page Object Model architecture
+- Custom fixtures for test data
+- Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- Mobile and desktop viewports
+- Visual regression testing
+- API mocking and stubbing
+- Database state management
+- CI/CD integration with GitHub Actions
+- Parallel execution capabilities
+- Detailed reporting with screenshots/videos
+- Flaky test detection and retry mechanisms
+
+Include:
+1. Project structure and configuration
+2. Base page classes and utilities
+3. Test data factories and fixtures
+4. Custom assertions and helpers
+5. CI/CD pipeline configuration
+6. Reporting and notifications setup
+```
+
+#### Advanced Playwright Test Scenarios
+```
+Generate Playwright test automation for complex user workflows:
+
+Scenario 1: Complete E-commerce Purchase Journey
+- User registration with email verification
+- Browse products with dynamic loading
+- Apply filters and sort options
+- Add multiple items to cart from different categories
+- Apply discount codes and validate pricing
+- Guest checkout vs logged-in user checkout
+- Multiple payment methods testing
+- Order confirmation and email verification
+- Track order status updates
+
+Scenario 2: Admin Panel Management
+- Admin login with MFA
+- Product management (CRUD operations)
+- Bulk upload with CSV validation
+- Inventory management with real-time updates
+- User management and role assignments
+- Analytics dashboard interactions
+- Report generation and downloads
+- System settings configuration
+
+Technical Requirements:
+- Handle dynamic content loading (API responses)
+- Wait for network requests completion
+- Manage browser state and cookies
+- Handle file uploads and downloads
+- Interact with iframes and pop-ups
+- Test responsive design breakpoints
+- Validate form validation messages
+- Test accessibility compliance (WCAG)
+- Performance metrics collection
+- Error handling and recovery scenarios
+
+For each scenario, include:
+1. Test data setup and teardown
+2. Page object implementations
+3. Custom fixtures and utilities
+4. Assertion strategies
+5. Error handling patterns
+6. Performance measurement points
+```
+
+#### Playwright Visual & Accessibility Testing
+```
+Implement comprehensive visual and accessibility testing:
+
+Visual Regression Testing:
+- Full page screenshots across viewports
+- Component-level visual testing
+- Cross-browser visual comparison
+- Mobile vs desktop layout validation
+- Dark mode vs light mode comparison
+- Dynamic content visual testing
+- Animation and transition testing
+- Print stylesheet validation
+
+```typescript
+// Example visual testing implementation
+test.describe('Visual Regression Suite', () => {
+  test('Homepage visual comparison', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    
+    // Full page screenshot
+    await expect(page).toHaveScreenshot('homepage-full.png', {
+      fullPage: true,
+      animations: 'disabled'
+    });
+    
+    // Component-level screenshots
+    await expect(page.locator('[data-testid="header"]')).toHaveScreenshot('header-component.png');
+    await expect(page.locator('[data-testid="hero-section"]')).toHaveScreenshot('hero-section.png');
+  });
+});
+```
+
+Accessibility Testing Integration:
+- WCAG 2.1 AA compliance verification
+- Keyboard navigation testing
+- Screen reader compatibility
+- Color contrast validation
+- Focus management testing
+- ARIA attributes verification
+- Alternative text validation
+- Form accessibility testing
+
+Include:
+1. axe-core integration with Playwright
+2. Custom accessibility assertions
+3. Automated accessibility reporting
+4. Manual accessibility test scenarios
+5. Accessibility test data and fixtures
+```
+
+#### Playwright API Testing Integration
+```
+Create comprehensive API testing within Playwright framework:
+
+API Testing Strategy:
+- REST API endpoint validation
+- GraphQL query and mutation testing
+- Authentication and authorization testing
+- Rate limiting and error handling verification
+- Data validation and schema compliance
+- Performance and load testing integration
+- Mock server setup for testing
+- Contract testing with consumer-driven contracts
+
+```typescript
+// Example API testing implementation
+test.describe('API Integration Tests', () => {
+  test('User authentication flow', async ({ request }) => {
+    // Login API test
+    const loginResponse = await request.post('/api/auth/login', {
+      data: {
+        email: 'test@example.com',
+        password: 'secure123'
+      }
+    });
+    
+    expect(loginResponse.status()).toBe(200);
+    const loginData = await loginResponse.json();
+    expect(loginData).toHaveProperty('token');
+    expect(loginData).toHaveProperty('user');
+    
+    // Use token for authenticated requests
+    const userProfile = await request.get('/api/user/profile', {
+      headers: {
+        'Authorization': `Bearer ${loginData.token}`
+      }
+    });
+    
+    expect(userProfile.status()).toBe(200);
+    const profile = await userProfile.json();
+    expect(profile.email).toBe('test@example.com');
+  });
+});
+```
+
+API Test Categories:
+1. Authentication and session management
+2. CRUD operations with data validation
+3. Error handling and edge cases
+4. Rate limiting and throttling
+5. File upload and download
+6. Real-time features (WebSockets)
+7. Third-party API integrations
+8. Database consistency validation
+9. Caching behavior verification
+10. Security vulnerability testing
+
+Framework Integration:
+- Shared test data between UI and API tests
+- API response mocking for UI tests
+- Database state synchronization
+- Test environment management
+- Continuous integration pipeline
+- Performance metrics collection
 ```
 
 ---
 
-## 🌐 API Testing
+## 🌐 Advanced API Testing with Schema Validation
 
-### API Test Case Templates
-
-#### REST API Testing
+### Comprehensive API Testing Framework
 ```
-Generate comprehensive API test cases for this endpoint:
+Create a comprehensive API testing strategy for [application]:
 
-Endpoint: POST /api/users
-Purpose: Create new user account
+API Architecture:
+- REST APIs with OpenAPI 3.0 specification
+- GraphQL APIs with schema definition
+- WebSocket real-time communication
+- Authentication: JWT with refresh tokens
+- Authorization: Role-based access control (RBAC)
+- Rate limiting: [requests per minute/hour]
+- Pagination: Cursor-based and offset-based
+- File upload/download capabilities
+- Webhooks for external integrations
 
-Request Body:
-```json
-{
-  "email": "string",
-  "password": "string", 
-  "firstName": "string",
-  "lastName": "string"
+Testing Requirements:
+1. Contract testing with schema validation
+2. Performance testing with load scenarios
+3. Security testing (OWASP API Top 10)
+4. Data integrity and consistency testing
+5. Error handling and recovery testing
+6. Integration testing with external services
+7. Compatibility testing across API versions
+8. Monitoring and observability testing
+
+Tools Integration:
+- Jest/Mocha for test framework
+- JSON Schema validation
+- OpenAPI schema validation
+- Postman/Newman for collection running
+- K6 for performance testing
+- OWASP ZAP for security testing
+- Wiremock for API mocking
+- CI/CD pipeline integration
+
+Provide:
+- Test strategy and approach
+- Test data management strategy
+- Environment setup and configuration
+- Reporting and metrics collection
+- Automation framework architecture
+```
+
+### 🔧 Schema-Driven API Testing
+
+#### OpenAPI Schema Validation Testing
+```
+Generate comprehensive API tests with OpenAPI schema validation:
+
+API Specification:
+```yaml
+# users-api.yaml
+openapi: 3.0.3
+info:
+  title: User Management API
+  version: 2.0.0
+paths:
+  /api/v2/users:
+    post:
+      summary: Create new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    CreateUserRequest:
+      type: object
+      required: [email, password, firstName, lastName]
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 255
+        password:
+          type: string
+          minLength: 8
+          pattern: '^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]'
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 50
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 50
+        dateOfBirth:
+          type: string
+          format: date
+        phoneNumber:
+          type: string
+          pattern: '^\+[1-9]\d{1,14}$'
+```
+
+Test Implementation Requirements:
+1. Schema validation for request/response bodies
+2. Data type validation (string, number, boolean, array, object)
+3. Format validation (email, date, uuid, uri)
+4. Range validation (minLength, maxLength, minimum, maximum)
+5. Pattern validation (regex patterns)
+6. Required field validation
+7. Additional properties handling
+8. Enum value validation
+9. Nested object and array validation
+10. Custom validation rules
+
+Include:
+- Positive test cases with valid data
+- Negative test cases with invalid data
+- Boundary value testing
+- Schema evolution testing
+- Contract testing implementation
+```
+
+#### GraphQL API Testing with Schema Validation
+```
+Create comprehensive GraphQL API testing with schema validation:
+
+GraphQL Schema:
+```graphql
+type User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  posts: [Post!]!
+  profile: UserProfile
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  publishedAt: DateTime
+  author: User!
+  tags: [String!]!
+  viewCount: Int!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date
+}
+
+type Query {
+  users(first: Int, after: String, filter: UserFilter): UserConnection!
+  user(id: ID!): User
+  posts(first: Int, after: String): PostConnection!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: ID!, input: UpdateUserInput!): User!
+  deleteUser(id: ID!): Boolean!
+}
+
+type Subscription {
+  userCreated: User!
+  postPublished: Post!
 }
 ```
 
-Include tests for:
-- Valid request scenarios
-- Invalid/missing parameters
-- Data validation rules
-- Authentication/authorization
-- Rate limiting
-- Error response formats
-- Status code verification
+Testing Scenarios:
+1. Query testing with field selection validation
+2. Mutation testing with input validation
+3. Subscription testing for real-time updates
+4. Schema introspection testing
+5. Query complexity and depth analysis
+6. Performance testing with nested queries
+7. Authentication and authorization testing
+8. Error handling and validation
+9. Pagination testing (cursor-based)
+10. File upload testing (multipart/form-data)
 
-Provide test cases in Postman format and as automated test scripts.
+Test Implementation:
+- GraphQL schema validation
+- Query syntax validation
+- Response data structure validation
+- Custom scalar type validation
+- Directive validation
+- Fragment validation
+- Variable validation
+- Subscription lifecycle testing
+
+Include:
+- Query and mutation test cases
+- Schema validation utilities
+- Mock data generation
+- Performance benchmarking
+- Error scenario testing
 ```
 
-#### API Security Testing
+#### JSON Schema Validation Framework
 ```
-Create security test cases for user management API:
+Implement robust JSON Schema validation for API testing:
 
-Endpoints:
-- POST /api/users (create user)
-- GET /api/users/{id} (get user)
-- PUT /api/users/{id} (update user)
-- DELETE /api/users/{id} (delete user)
+Schema Definition Strategy:
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.example.com/schemas/user.json",
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 255
+    },
+    "profile": {
+      "$ref": "#/$defs/UserProfile"
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "notifications": {
+          "type": "object",
+          "properties": {
+            "email": { "type": "boolean" },
+            "sms": { "type": "boolean" },
+            "push": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "privacy": {
+          "type": "string",
+          "enum": ["public", "friends", "private"]
+        }
+      }
+    }
+  },
+  "required": ["id", "email"],
+  "additionalProperties": false,
+  "$defs": {
+    "UserProfile": {
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string", "minLength": 1 },
+        "lastName": { "type": "string", "minLength": 1 },
+        "bio": { "type": "string", "maxLength": 500 },
+        "avatar": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}
+```
 
-Security tests needed:
-1. Authentication bypass attempts
-2. Authorization testing (access other users' data)
-3. Input validation (SQL injection, XSS)
-4. Rate limiting verification
-5. Sensitive data exposure
-6. HTTP method testing
-7. Error message information disclosure
+Validation Testing Framework:
+1. Schema compilation and validation
+2. Response data validation against schema
+3. Custom format validation (email, uuid, uri, date)
+4. Conditional schema validation (if/then/else)
+5. Cross-field validation rules
+6. Dynamic schema validation
+7. Schema versioning and backward compatibility
+8. Custom keyword validation
+9. Error message validation and clarity
+10. Performance impact of validation
 
-Include expected responses and risk levels.
+Implementation Components:
+- Schema registry management
+- Validation middleware integration
+- Custom assertion helpers
+- Error reporting and logging
+- Schema documentation generation
+- Test data generation from schemas
+- Schema-driven mock server
+- Regression testing for schema changes
+
+Tools Integration:
+- Ajv for JSON Schema validation
+- JSON Schema Faker for test data generation
+- JSON Schema to OpenAPI conversion
+- Schema diff tools for version comparison
+- Integration with testing frameworks
+```
+
+### 🔐 Advanced API Security Testing
+
+#### OWASP API Security Testing
+```
+Implement comprehensive API security testing based on OWASP API Security Top 10:
+
+Security Test Categories:
+
+1. Broken Object Level Authorization (BOLA)
+   - Test accessing other users' resources
+   - Verify object-level permission checks
+   - Test horizontal privilege escalation
+
+2. Broken User Authentication
+   - Test weak password policies
+   - Verify JWT token validation
+   - Test session management flaws
+
+3. Excessive Data Exposure
+   - Verify response data filtering
+   - Test for sensitive data leakage
+   - Check API versioning security
+
+4. Lack of Resources & Rate Limiting
+   - Test for DoS vulnerability
+   - Verify rate limiting implementation
+   - Test resource consumption attacks
+
+5. Broken Function Level Authorization
+   - Test vertical privilege escalation
+   - Verify role-based access controls
+   - Test administrative function access
+
+Security Testing Framework:
+```typescript
+describe('API Security Tests', () => {
+  describe('Authentication Security', () => {
+    test('should reject requests with invalid JWT tokens', async () => {
+      const invalidToken = 'invalid.jwt.token';
+      const response = await request(app)
+        .get('/api/users/profile')
+        .set('Authorization', `Bearer ${invalidToken}`)
+        .expect(401);
+      
+      expect(response.body.error).toBe('Invalid token');
+    });
+    
+    test('should reject expired JWT tokens', async () => {
+      const expiredToken = generateExpiredToken();
+      const response = await request(app)
+        .get('/api/users/profile')
+        .set('Authorization', `Bearer ${expiredToken}`)
+        .expect(401);
+      
+      expect(response.body.error).toBe('Token expired');
+    });
+  });
+  
+  describe('Authorization Security', () => {
+    test('should prevent access to other users data (BOLA)', async () => {
+      const userToken = await generateUserToken('user1');
+      const response = await request(app)
+        .get('/api/users/user2/profile')
+        .set('Authorization', `Bearer ${userToken}`)
+        .expect(403);
+      
+      expect(response.body.error).toBe('Access denied');
+    });
+  });
+});
+```
+
+Include comprehensive test cases for:
+- Input validation and sanitization
+- SQL injection prevention
+- XSS prevention
+- CSRF protection
+- Mass assignment prevention
+- Business logic vulnerability testing
+- API versioning security
+- Logging and monitoring verification
 ```
 
 ---
 
-## ⚡ Performance Testing
+## ⚡ Advanced Performance Testing with Grafana K6
 
-### Performance Testing Templates
-
-#### Load Testing Strategy
+### Comprehensive Performance Testing Strategy
 ```
-Design a load testing strategy for [application] with these requirements:
+Design a comprehensive performance testing strategy using Grafana K6:
 
-Application Profile:
-- Expected concurrent users: [number]
-- Peak traffic periods: [times]
-- Critical user journeys: [list]
-- Performance SLAs: [response times, throughput]
+Application Architecture Analysis:
+- Frontend: [NextJS/React] with [SSR/CSR/SSG]
+- Backend: [Node.js/Java/Python] microservices
+- Database: [PostgreSQL/MongoDB] with [connection pooling]
+- Caching: [Redis/Memcached] distributed cache
+- CDN: [CloudFlare/AWS CloudFront] for static assets
+- Load Balancer: [ALB/Nginx] with health checks
+- Infrastructure: [AWS/Azure/GCP] with auto-scaling
 
-Current Issues:
-- [Known bottlenecks]
-- [Previous performance problems]
+Performance Requirements:
+- SLA Targets: 99.9% availability, <2s response time
+- Load Patterns: Peak 10,000 concurrent users
+- Throughput: 50,000 requests/minute
+- Geographic Distribution: Global user base
+- Device Types: 60% mobile, 40% desktop
+- Browser Mix: Chrome 70%, Safari 20%, Firefox 10%
 
-Create:
-1. Load testing scenarios with user loads
-2. Performance metrics to monitor
-3. Test data requirements
-4. Environment specifications
-5. Success criteria and thresholds
-6. Escalation procedures for issues
+K6 Testing Strategy:
+1. Smoke Testing (1-10 users, 2-5 minutes)
+2. Load Testing (average load, 10-30 minutes)
+3. Stress Testing (above normal load, find breaking point)
+4. Spike Testing (sudden load increases)
+5. Volume Testing (large amounts of data)
+6. Soak Testing (extended periods, memory leaks)
+7. Breakpoint Testing (gradually increase until failure)
+
+Provide:
+- K6 script architecture and organization
+- Test data management strategy
+- Environment setup and CI/CD integration
+- Monitoring and alerting configuration
+- Performance baseline establishment
+- Bottleneck identification methodology
 ```
 
-#### JMeter Test Plan Generation
-```
-Generate a JMeter test plan for e-commerce site testing:
+### 🚀 Grafana K6 Implementation Examples
 
-Scenarios to test:
-1. Browse products (40% of users)
-2. Search functionality (30% of users)  
-3. Add to cart and checkout (20% of users)
-4. User registration/login (10% of users)
+#### Advanced K6 Performance Testing Framework
+```
+Create a comprehensive K6 testing framework for a modern web application:
+
+Framework Structure:
+```javascript
+// k6-framework/
+// ├── config/
+// │   ├── environments.js
+// │   └── thresholds.js
+// ├── data/
+// │   ├── users.json
+// │   └── products.json
+// ├── scenarios/
+// │   ├── smoke.js
+// │   ├── load.js
+// │   ├── stress.js
+// │   └── spike.js
+// ├── utils/
+// │   ├── auth.js
+// │   ├── checks.js
+// │   └── metrics.js
+// └── tests/
+//     ├── api/
+//     └── ui/
+```
+
+Main Test Configuration:
+```javascript
+import http from 'k6/http';
+import { check, sleep, group } from 'k6';
+import { SharedArray } from 'k6/data';
+import { Counter, Rate, Trend } from 'k6/metrics';
+import { htmlReport } from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js';
+
+// Custom metrics
+const customErrorRate = new Rate('custom_error_rate');
+const customResponseTime = new Trend('custom_response_time');
+const apiCallsCounter = new Counter('api_calls_total');
+
+// Test data
+const users = new SharedArray('users', function () {
+  return JSON.parse(open('./data/users.json'));
+});
+
+// Test scenarios
+export const options = {
+  scenarios: {
+    smoke: {
+      executor: 'constant-vus',
+      vus: 2,
+      duration: '2m',
+      tags: { test_type: 'smoke' },
+    },
+    load: {
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '5m', target: 100 },
+        { duration: '10m', target: 100 },
+        { duration: '5m', target: 0 },
+      ],
+      tags: { test_type: 'load' },
+    },
+    stress: {
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '5m', target: 200 },
+        { duration: '10m', target: 500 },
+        { duration: '5m', target: 0 },
+      ],
+      tags: { test_type: 'stress' },
+    },
+  },
+  thresholds: {
+    http_req_duration: ['p(95)<2000'], // 95% of requests under 2s
+    http_req_failed: ['rate<0.1'],     // Error rate under 10%
+    custom_error_rate: ['rate<0.05'],
+  },
+};
+
+export default function () {
+  // Test implementation
+}
+
+export function handleSummary(data) {
+  return {
+    'summary.html': htmlReport(data),
+    'summary.json': JSON.stringify(data, null, 2),
+  };
+}
+```
 
 Requirements:
-- Simulate 1000 concurrent users
-- 30-minute test duration
-- Realistic think times between actions
-- CSV data files for test data
-- Response time assertions
-- Error handling for failures
+- Realistic user behavior simulation
+- Advanced metrics collection
+- Custom assertions and validations
+- Environment-specific configuration
+- Integration with monitoring systems
+- Automated performance regression detection
+- CI/CD pipeline integration
+- Custom reporting and dashboards
+```
 
-Include:
-- Thread group configurations
-- HTTP request details
-- Assertions and listeners
-- Correlation for dynamic data
-- Reporting configuration
+#### E-commerce Application Performance Testing
+```
+Create comprehensive K6 performance tests for an e-commerce platform:
+
+User Journey Scenarios:
+1. Guest User Journey (40% of traffic)
+   - Browse homepage
+   - Search for products
+   - View product details
+   - Add items to cart
+   - Checkout as guest
+
+2. Registered User Journey (35% of traffic)
+   - Login to account
+   - Browse personalized recommendations
+   - Add items to cart
+   - Apply coupon codes
+   - Complete purchase
+
+3. Admin User Journey (5% of traffic)
+   - Admin dashboard access
+   - Product management operations
+   - Order processing
+   - Analytics review
+
+4. API-Only Traffic (20% of traffic)
+   - Mobile app API calls
+   - Third-party integrations
+   - Webhook notifications
+   - Background data synchronization
+
+K6 Implementation:
+```javascript
+import http from 'k6/http';
+import { check, sleep, group } from 'k6';
+import { SharedArray } from 'k6/data';
+import { Rate, Trend, Counter } from 'k6/metrics';
+
+// Performance metrics
+const checkoutErrorRate = new Rate('checkout_errors');
+const searchResponseTime = new Trend('search_response_time');
+const apiSuccessRate = new Rate('api_success_rate');
+
+export const options = {
+  scenarios: {
+    guest_users: {
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '2m', target: 40 },
+        { duration: '10m', target: 40 },
+        { duration: '2m', target: 0 },
+      ],
+      exec: 'guestUserJourney',
+    },
+    registered_users: {
+      executor: 'ramping-vus',
+      startVUs: 0,
+      stages: [
+        { duration: '2m', target: 35 },
+        { duration: '10m', target: 35 },
+        { duration: '2m', target: 0 },
+      ],
+      exec: 'registeredUserJourney',
+    },
+    api_traffic: {
+      executor: 'constant-arrival-rate',
+      rate: 100,
+      timeUnit: '1s',
+      duration: '14m',
+      preAllocatedVUs: 20,
+      exec: 'apiTraffic',
+    },
+  },
+  thresholds: {
+    'http_req_duration{scenario:guest_users}': ['p(95)<3000'],
+    'http_req_duration{scenario:registered_users}': ['p(95)<2500'],
+    'http_req_duration{scenario:api_traffic}': ['p(95)<1000'],
+    checkout_errors: ['rate<0.01'],
+    api_success_rate: ['rate>0.99'],
+  },
+};
+
+export function guestUserJourney() {
+  group('Guest User - Product Discovery', () => {
+    // Homepage visit
+    let response = http.get('https://api.example.com/');
+    check(response, {
+      'homepage loads successfully': (r) => r.status === 200,
+      'homepage response time OK': (r) => r.timings.duration < 2000,
+    });
+    
+    sleep(2);
+    
+    // Product search
+    response = http.get('https://api.example.com/api/products/search?q=laptop&limit=20');
+    searchResponseTime.add(response.timings.duration);
+    check(response, {
+      'search returns results': (r) => r.json('products').length > 0,
+    });
+    
+    sleep(3);
+  });
+  
+  group('Guest User - Checkout Process', () => {
+    // Add to cart
+    const cartData = {
+      productId: 'prod_123',
+      quantity: 1,
+      sessionId: `session_${__VU}_${__ITER}`,
+    };
+    
+    response = http.post('https://api.example.com/api/cart/add', JSON.stringify(cartData), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+    
+    const checkoutSuccess = check(response, {
+      'add to cart successful': (r) => r.status === 200,
+    });
+    
+    checkoutErrorRate.add(!checkoutSuccess);
+    sleep(5);
+  });
+}
+
+export function apiTraffic() {
+  // Mobile API simulation
+  const apiResponse = http.get('https://api.example.com/api/v2/products/featured', {
+    headers: {
+      'Accept': 'application/json',
+      'User-Agent': 'MobileApp/2.1.0',
+    },
+  });
+  
+  const success = check(apiResponse, {
+    'API response successful': (r) => r.status === 200,
+    'API response time acceptable': (r) => r.timings.duration < 1000,
+  });
+  
+  apiSuccessRate.add(success);
+}
+```
+
+Performance Monitoring Integration:
+- Real-time metrics streaming to Grafana
+- Custom dashboards for different scenarios
+- Automated alerting on threshold breaches
+- Performance regression detection
+- Capacity planning recommendations
+```
+
+#### Advanced K6 Monitoring and Observability
+```
+Implement comprehensive monitoring and observability for K6 performance tests:
+
+Monitoring Stack Integration:
+```javascript
+// k6-monitoring-setup.js
+import { check, sleep } from 'k6';
+import http from 'k6/http';
+import { Trend, Rate, Counter, Gauge } from 'k6/metrics';
+import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.1/index.js';
+
+// Custom Business Metrics
+const userRegistrations = new Counter('user_registrations_total');
+const orderValue = new Trend('order_value_usd');
+const inventoryLevel = new Gauge('inventory_items_available');
+const conversionRate = new Rate('checkout_conversion_rate');
+
+// Performance Metrics by Business Function
+const loginResponseTime = new Trend('login_response_time');
+const searchResponseTime = new Trend('search_response_time');
+const checkoutResponseTime = new Trend('checkout_response_time');
+const apiResponseTime = new Trend('api_response_time');
+
+export const options = {
+  scenarios: {
+    performance_monitoring: {
+      executor: 'ramping-vus',
+      stages: [
+        { duration: '5m', target: 50 },
+        { duration: '30m', target: 100 },
+        { duration: '5m', target: 0 },
+      ],
+    },
+  },
+  
+  // SLA-based thresholds
+  thresholds: {
+    // Business SLA requirements
+    http_req_duration: [
+      'p(50)<1000',   // 50% under 1s
+      'p(95)<2000',   // 95% under 2s  
+      'p(99)<5000',   // 99% under 5s
+    ],
+    http_req_failed: ['rate<0.01'],
+    
+    // Business-specific SLAs
+    login_response_time: ['p(95)<1500'],
+    search_response_time: ['p(95)<800'],
+    checkout_response_time: ['p(95)<3000'],
+    checkout_conversion_rate: ['rate>0.85'],
+  },
+  
+  // External monitoring integration
+  ext: {
+    loadimpact: {
+      // Grafana Cloud k6 integration
+      projectID: 12345,
+      name: 'E-commerce Performance Test',
+    },
+  },
+};
+
+export default function () {
+  group('Business Transaction Monitoring', () => {
+    // User login with business metrics
+    let response = http.post('https://api.example.com/api/auth/login', {
+      email: 'test@example.com',
+      password: 'password123',
+    });
+    
+    loginResponseTime.add(response.timings.duration);
+    
+    if (check(response, { 'login successful': (r) => r.status === 200 })) {
+      userRegistrations.add(1);
+    }
+    
+    // Product search with performance tracking
+    response = http.get('https://api.example.com/api/search?q=electronics');
+    searchResponseTime.add(response.timings.duration);
+    
+    // Simulate checkout process
+    const checkoutData = generateCheckoutData();
+    response = http.post('https://api.example.com/api/checkout', checkoutData);
+    checkoutResponseTime.add(response.timings.duration);
+    
+    if (check(response, { 'checkout successful': (r) => r.status === 201 })) {
+      conversionRate.add(1);
+      orderValue.add(checkoutData.totalAmount);
+    } else {
+      conversionRate.add(0);
+    }
+  });
+  
+  sleep(1);
+}
+
+// Custom summary with business metrics
+export function handleSummary(data) {
+  console.log('Performance Test Summary:');
+  console.log(`- Total Users Simulated: ${data.metrics.vus_max.values.max}`);
+  console.log(`- Test Duration: ${data.state.testRunDurationMs / 1000}s`);
+  console.log(`- Total Requests: ${data.metrics.http_reqs.values.count}`);
+  console.log(`- Error Rate: ${(data.metrics.http_req_failed.values.rate * 100).toFixed(2)}%`);
+  
+  return {
+    'stdout': textSummary(data, { indent: ' ', enableColors: true }),
+    'summary.json': JSON.stringify(data, null, 2),
+    'business-metrics.json': JSON.stringify({
+      userRegistrations: data.metrics.user_registrations_total?.values.count || 0,
+      averageOrderValue: data.metrics.order_value_usd?.values.avg || 0,
+      conversionRate: data.metrics.checkout_conversion_rate?.values.rate || 0,
+    }, null, 2),
+  };
+}
+
+function generateCheckoutData() {
+  return {
+    items: [
+      { productId: 'prod_123', quantity: 1, price: 99.99 },
+    ],
+    totalAmount: 99.99,
+    paymentMethod: 'credit_card',
+    shippingAddress: {
+      street: '123 Test St',
+      city: 'Test City',
+      zipCode: '12345',
+    },
+  };
+}
+```
+
+Grafana Dashboard Configuration:
+- Real-time performance metrics visualization
+- Business KPI tracking during load tests
+- SLA compliance monitoring
+- Resource utilization correlation
+- Automated anomaly detection
+- Performance trend analysis
+- Capacity planning insights
+
+CI/CD Integration:
+- Automated performance regression detection
+- Performance budgets enforcement
+- Load test orchestration in pipelines
+- Performance report generation
+- Stakeholder notifications
+- Environment-specific test execution
 ```
 
 ---

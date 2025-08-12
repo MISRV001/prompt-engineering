@@ -93,122 +93,531 @@
 
 ---
 
-## 💻 Code Generation
+## 💻 Modern Stack Code Generation
 
-### Basic Code Generation Template
+### Advanced Code Generation Framework
 ```
-Generate [language] code that [functionality] with these requirements:
-- [Requirement 1]
-- [Requirement 2] 
-- [Requirement 3]
+Generate [language/framework] code implementing [functionality]:
 
-Include comments explaining the logic and handle edge cases.
-```
+Tech Stack:
+- Frontend: [NextJS/ReactJS/TypeScript]
+- Backend: [Node.js BFF/Java Spring/GraphQL]
+- Database: [PostgreSQL/MongoDB/Prisma]
 
-### Specific Examples
+Requirements:
+- [Business requirement 1]
+- [Business requirement 2]
+- [NFR requirement - performance/security/scalability]
 
-#### API Endpoint Creation
-```
-Create a REST API endpoint in Node.js/Express that:
-- Accepts user registration data (email, password, name)
-- Validates email format and password strength
-- Checks for existing users
-- Hashes passwords using bcrypt
-- Returns appropriate HTTP status codes
-- Includes error handling for database failures
-
-Include TypeScript types and comprehensive comments.
-```
-
-#### Database Query Generation
-```
-Write a SQL query that:
-- Joins users, orders, and products tables
-- Finds all users who purchased more than $500 worth of products in the last 30 days
-- Groups results by user
-- Orders by total purchase amount descending
-- Include user name, email, total spent, and number of orders
-
-Also provide the equivalent using Prisma ORM.
+Include:
+- TypeScript interfaces/types
+- Error handling with proper HTTP status codes
+- Input validation and sanitization
+- Performance optimizations
+- Security best practices
+- Comprehensive JSDoc/JavaDoc
+- Unit test examples
 ```
 
-#### React Component Creation
+### 🚀 NextJS & React Examples
+
+#### NextJS 14 App Router with Server Components
 ```
-Create a React TypeScript component for a product card that:
-- Accepts props: product (with name, price, image, description)
-- Shows product image with lazy loading
-- Displays price with currency formatting
-- Has an "Add to Cart" button with loading state
-- Uses CSS modules for styling
-- Includes accessibility attributes
-- Handles image loading errors with fallback
+Create a NextJS 14 application with App Router for an e-commerce product catalog:
+
+Requirements:
+- Server-side rendering with streaming
+- Dynamic product pages with ISR
+- Search functionality with debouncing
+- Shopping cart with optimistic updates
+- Authentication with NextAuth.js
+- Dark/light theme support
+- Mobile-responsive design
+
+Include:
+- TypeScript interfaces for Product, User, Cart
+- Server components for data fetching
+- Client components for interactivity
+- Custom hooks for cart management
+- Tailwind CSS with component variants
+- Error boundaries and loading states
+- SEO optimization with metadata API
+- Performance monitoring setup
+```
+
+#### React TypeScript Component Library
+```
+Create a reusable React TypeScript component library for a design system:
+
+Components needed:
+- Button (variants: primary, secondary, ghost, destructive)
+- Input (with validation states and icons)
+- Modal (with portal and focus management)
+- DataTable (with sorting, filtering, pagination)
+- Toast notification system
+
+Requirements:
+- Compound component patterns
+- Polymorphic components with 'as' prop
+- Custom hooks for component logic
+- Storybook integration
+- Theme provider with CSS-in-JS (emotion/styled-components)
+- Accessibility compliance (WCAG 2.1 AA)
+- Tree-shakeable exports
+- Unit tests with React Testing Library
+```
+
+#### Advanced React Patterns
+```
+Implement advanced React patterns for a real-time dashboard:
+
+Patterns to implement:
+- Compound Components (for flexible layouts)
+- Render Props (for data visualization)
+- Higher-Order Components (for authentication)
+- Custom Hooks (for WebSocket connections)
+- Context + Reducer (for global state)
+
+Features:
+- Real-time data streaming with WebSockets
+- Virtualized lists for large datasets
+- Memoization strategies for performance
+- Error boundaries with retry logic
+- Suspense for data fetching
+- Progressive Web App capabilities
+
+Tech Stack: React 18, TypeScript, TanStack Query, Zustand, Chart.js
+```
+
+### 🔧 Backend Development Examples
+
+#### Node.js BFF (Backend for Frontend) Architecture
+```
+Create a Node.js BFF service for a multi-platform application:
+
+Architecture:
+- Express.js with TypeScript
+- GraphQL Federation gateway
+- Microservice communication patterns
+- JWT authentication with refresh tokens
+- Rate limiting and request throttling
+- Structured logging with Winston
+- Health checks and metrics
+
+Features to implement:
+- API aggregation from multiple services
+- Response transformation for mobile/web clients
+- Caching strategies (Redis)
+- Circuit breaker pattern
+- Request/response middleware
+- OpenAPI documentation
+- Docker containerization
+
+Include:
+- TypeScript interfaces for all data models
+- Custom middleware for authentication
+- Error handling middleware with proper status codes
+- Performance monitoring hooks
+- Unit and integration tests
+```
+
+#### Java Spring Boot Microservice
+```
+Develop a Java Spring Boot microservice for order processing:
+
+Requirements:
+- RESTful APIs with Spring WebFlux (reactive)
+- PostgreSQL with JPA/Hibernate
+- Event-driven architecture with RabbitMQ
+- Distributed tracing with Micrometer
+- Circuit breaker with Resilience4j
+- API documentation with OpenAPI 3.0
+- Security with Spring Security + JWT
+
+Features:
+- Order creation and status tracking
+- Payment integration with external services
+- Inventory management communication
+- Notification service integration
+- Audit logging for compliance
+- Metrics export to Prometheus
+
+Include:
+- Domain-driven design patterns
+- CQRS implementation
+- Event sourcing for order history
+- Custom exception handling
+- Integration tests with Testcontainers
+- Performance tuning configurations
+```
+
+#### GraphQL API with Type Safety
+```
+Build a GraphQL API using TypeScript and Apollo Server:
+
+Schema Design:
+- User management (authentication, profiles)
+- Product catalog with complex filtering
+- Order management with real-time updates
+- File upload handling
+- Subscription support for live features
+
+Technical Requirements:
+- Code-first schema with type-graphql
+- DataLoader for N+1 query prevention
+- Custom directives for authorization
+- Query complexity analysis
+- Persistent query support
+- Schema stitching/federation ready
+- Custom scalars (DateTime, Email, URL)
+
+Performance & Security:
+- Query depth limiting
+- Rate limiting per user/operation
+- Field-level authorization
+- SQL injection prevention
+- CORS configuration
+- Input sanitization
+- Response caching strategies
+
+Include comprehensive resolver examples with error handling.
 ```
 
 ---
 
-## 🐛 Debugging & Troubleshooting
+## 🐛 Advanced Debugging & Troubleshooting
 
-### Debugging Prompt Template
+### Production-Grade Debugging Framework
 ```
-I'm getting this error in [language/framework]:
-[Paste error message]
+Debug this [technology] issue in production environment:
 
-Here's the relevant code:
-[Paste code]
+Error Details:
+- Error message: [exact error text]
+- Stack trace: [relevant stack trace]
+- Environment: [staging/production/local]
+- Browser/Runtime: [specific versions]
+- Frequency: [always/intermittent/specific conditions]
+
+Code Context:
+[Paste relevant code]
+
+System Context:
+- Load conditions: [traffic volume, concurrent users]
+- Resource usage: [CPU, memory, disk, network]
+- Dependencies: [external services, databases, APIs]
+- Recent changes: [deployments, config changes]
+
+Performance Metrics:
+- Response times: [current vs expected]
+- Throughput: [requests/second]
+- Error rates: [percentage and patterns]
+
+Please provide:
+1. Root cause analysis with detailed explanation
+2. Immediate hotfix if critical
+3. Proper long-term solution
+4. Prevention strategies
+5. Monitoring improvements
+6. Testing recommendations
+```
+
+### 🔍 Modern Stack Debugging Examples
+
+#### NextJS 14 SSR Hydration Issues
+```
+Debug this NextJS 14 hydration mismatch error:
+
+Error: "Hydration failed because the initial UI does not match what was rendered on the server"
+
+```typescript
+// app/dashboard/page.tsx
+'use client';
+import { useState, useEffect } from 'react';
+
+export default function Dashboard() {
+  const [userCount, setUserCount] = useState(0);
+  
+  useEffect(() => {
+    setUserCount(Math.random() * 100);
+  }, []);
+  
+  return <div>Users online: {userCount}</div>;
+}
+```
 
 Context:
-- What I'm trying to achieve: [goal]
-- When it happens: [circumstances]
-- What I've tried: [attempted solutions]
+- Happens only in production build
+- Works fine in development
+- User sees flash of incorrect content
+- App Router with both server and client components
+- Using middleware for authentication
 
-Please help me understand what's wrong and provide a fix.
+Analyze the hydration issue and provide solutions for:
+1. Fixing the immediate error
+2. Preventing future hydration mismatches
+3. Best practices for dynamic content in SSR
+4. Alternative patterns for client-side only data
 ```
 
-### Specific Examples
-
-#### JavaScript Error Analysis
+#### TypeScript Performance & Memory Issues
 ```
-I'm getting "Cannot read property 'map' of undefined" in my React component:
+Debug TypeScript compilation performance degradation:
 
-```javascript
-const UserList = ({ users }) => {
+Issue: TypeScript compilation taking 45+ seconds, previously took 5 seconds
+
+Project details:
+- 2000+ TypeScript files
+- React + NextJS 14 with App Router
+- Multiple workspace packages
+- Complex type definitions with conditional types
+- Generic utility types heavily used
+
+Recent changes:
+- Added GraphQL code generation
+- Introduced new component library
+- Updated from TS 4.9 to 5.2
+
+Error patterns:
+- tsc shows high memory usage (8GB+)
+- IDE becomes unresponsive during type checking
+- Build times increased 900%
+
+Analyze and provide solutions for:
+1. TypeScript compiler optimization
+2. tsconfig.json tuning for large projects
+3. Type definition refactoring strategies
+4. Incremental compilation setup
+5. Memory usage optimization
+6. Alternative build strategies
+```
+
+#### Node.js BFF Memory Leaks & Performance
+```
+Debug Node.js BFF service experiencing memory leaks:
+
+Symptoms:
+- Memory usage grows from 200MB to 2GB over 4 hours
+- Response times degrade from 50ms to 2000ms
+- Eventually crashes with "JavaScript heap out of memory"
+- CPU usage spikes to 100% before crash
+
+```typescript
+// Suspect code area
+class DataAggregator {
+  private cache = new Map<string, any>();
+  private subscribers = new Set<WebSocket>();
+  
+  async aggregateData(userId: string) {
+    const cacheKey = `user:${userId}:${Date.now()}`;
+    
+    if (!this.cache.has(cacheKey)) {
+      const data = await this.fetchUserData(userId);
+      this.cache.set(cacheKey, data);
+    }
+    
+    return this.cache.get(cacheKey);
+  }
+  
+  subscribeToUpdates(ws: WebSocket) {
+    this.subscribers.add(ws);
+    ws.on('close', () => {
+      // WebSocket cleanup
+    });
+  }
+}
+```
+
+Environment:
+- Node.js 18.17.0 with TypeScript
+- Express.js with clustering (4 workers)
+- Redis for session storage
+- PostgreSQL connections via pool
+- GraphQL with DataLoader
+- 1000+ concurrent users
+
+Diagnose and fix:
+1. Memory leak sources and patterns
+2. Cache strategy improvements
+3. WebSocket connection management
+4. Database connection optimization
+5. Monitoring and alerting setup
+6. Load testing recommendations
+```
+
+#### React Performance with Large Lists
+```
+Debug React component rendering performance issues:
+
+Problem: DataTable component with 10,000+ rows causing browser freeze
+
+```typescript
+interface DataTableProps {
+  data: User[];
+  onSort: (column: string) => void;
+  onFilter: (filters: FilterState) => void;
+}
+
+const DataTable: React.FC<DataTableProps> = ({ data, onSort, onFilter }) => {
+  const [sortState, setSortState] = useState<SortState>({});
+  const [filterState, setFilterState] = useState<FilterState>({});
+  
+  // Re-renders on every prop change
+  const filteredData = data.filter(item => 
+    Object.entries(filterState).every(([key, value]) => 
+      item[key as keyof User]?.toString().includes(value)
+    )
+  );
+  
+  const sortedData = filteredData.sort((a, b) => {
+    // Complex sorting logic
+  });
+  
   return (
-    <div>
-      {users.map(user => <div key={user.id}>{user.name}</div>)}
-    </div>
+    <table>
+      {sortedData.map(item => (
+        <TableRow key={item.id} data={item} />
+      ))}
+    </table>
   );
 };
 ```
 
-Context:
-- This happens when the component first renders
-- Users data comes from an API call
-- The API call is async and takes time to complete
+Performance metrics:
+- Initial render: 3000ms
+- Filter operation: 1500ms  
+- Sort operation: 2000ms
+- Memory usage: 500MB+
+- Browser becomes unresponsive
 
-Please explain why this happens and show me 3 different ways to fix it.
+Optimize for:
+1. Virtualization implementation
+2. Memoization strategies
+3. State management optimization
+4. Rendering performance
+5. Memory usage reduction
+6. User experience improvements
 ```
 
-#### Performance Issue Diagnosis
+### 🚀 NFR (Non-Functional Requirements) Analysis
+
+#### Performance Optimization
 ```
-My Python script is running very slowly on large datasets:
+Analyze and optimize this application for performance requirements:
 
-```python
-def process_data(data_list):
-    result = []
-    for item in data_list:
-        if item['status'] == 'active':
-            processed = expensive_operation(item)
-            result.append(processed)
-    return result
+Current Performance Metrics:
+- Page load time: 4.2 seconds (target: <2 seconds)
+- Time to Interactive: 6.8 seconds (target: <3 seconds)
+- Largest Contentful Paint: 3.9 seconds (target: <2.5 seconds)
+- First Input Delay: 180ms (target: <100ms)
+- Cumulative Layout Shift: 0.15 (target: <0.1)
+
+Tech Stack:
+- NextJS 14 with App Router
+- React 18 with Suspense
+- TailwindCSS for styling
+- PostgreSQL database
+- Redis for caching
+- External API integrations
+
+Target NFRs:
+- Support 10,000 concurrent users
+- 99.9% uptime
+- <2s page load times
+- <500ms API response times
+- Mobile-first responsive design
+
+Provide optimization strategies for:
+1. Bundle size reduction and code splitting
+2. Image optimization and lazy loading
+3. Database query optimization
+4. Caching strategies (browser, CDN, server)
+5. CDN and hosting optimization
+6. Monitoring and performance tracking
 ```
 
-Context:
-- data_list has 100,000+ items
-- expensive_operation takes ~10ms per item
-- Current execution time is 20+ minutes
-- Memory usage keeps increasing
+#### Security Vulnerability Assessment
+```
+Conduct security analysis for this authentication system:
 
-Analyze the performance bottlenecks and suggest optimizations.
+```typescript
+// Current authentication implementation
+export class AuthService {
+  generateToken(user: User): string {
+    return jwt.sign(
+      { userId: user.id, email: user.email, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+  }
+  
+  async validatePassword(plaintext: string, hash: string): boolean {
+    return bcrypt.compare(plaintext, hash);
+  }
+  
+  async resetPassword(email: string): Promise<void> {
+    const token = crypto.randomBytes(32).toString('hex');
+    await this.emailService.sendResetEmail(email, token);
+  }
+}
+```
+
+Security Requirements:
+- PCI DSS compliance for payment data
+- GDPR compliance for EU users
+- SOC 2 Type II certification
+- OWASP Top 10 vulnerability prevention
+- Multi-factor authentication support
+
+Analyze and provide recommendations for:
+1. Authentication security improvements
+2. Authorization and access control
+3. Input validation and sanitization
+4. XSS and CSRF prevention
+5. SQL injection prevention
+6. Secrets management
+7. Rate limiting and DDoS protection
+8. Security headers and HTTPS configuration
+9. Audit logging and monitoring
+10. Penetration testing checklist
+```
+
+#### Scalability Architecture Review
+```
+Review this microservices architecture for scalability:
+
+Current Architecture:
+- Frontend: NextJS deployed on Vercel
+- API Gateway: Kong with rate limiting
+- Services: 5 Node.js microservices on Kubernetes
+- Database: PostgreSQL with read replicas
+- Message Queue: RabbitMQ
+- Caching: Redis cluster
+- Monitoring: Grafana + Prometheus
+
+Current Load:
+- 50,000 daily active users
+- 500 requests/second peak
+- 2TB data storage
+- 10ms average response time
+
+Scaling Requirements:
+- 10x user growth (500,000 DAU)
+- 5000 requests/second peak
+- Global deployment (US, EU, APAC)
+- 99.99% availability
+- Auto-scaling capabilities
+
+Provide architectural recommendations for:
+1. Horizontal scaling strategies
+2. Database sharding and partitioning
+3. Caching optimization across regions
+4. Load balancing and traffic distribution
+5. Circuit breaker and retry patterns
+6. Observability and monitoring at scale
+7. Cost optimization strategies
+8. Disaster recovery planning
+9. Blue-green deployment setup
+10. Performance testing strategy
 ```
 
 ---
