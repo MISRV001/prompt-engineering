@@ -1,16 +1,95 @@
+<div align="center">
+
 # 🔧 Prompt Engineering for Developers
 
-Master AI-assisted development with proven prompts and techniques. From code generation to debugging, documentation to architecture decisions.
+<p align="center">
+  <img src="https://img.shields.io/badge/Target_Audience-Developers-blue?style=for-the-badge&logo=github" alt="For Developers"/>
+  <img src="https://img.shields.io/badge/Skill_Level-All_Levels-green?style=for-the-badge" alt="All Levels"/>
+  <img src="https://img.shields.io/badge/Focus-Code_Quality-orange?style=for-the-badge&logo=codereview" alt="Code Quality"/>
+</p>
 
-## 🎯 Quick Navigation
+<p align="center">
+  <strong>Supercharge your development workflow with AI</strong><br/>
+  From code generation to debugging, documentation to architecture decisions
+</p>
 
-- [Code Generation](#code-generation)
-- [Debugging & Troubleshooting](#debugging--troubleshooting) 
-- [Code Review & Optimization](#code-review--optimization)
-- [Documentation](#documentation)
-- [Testing](#testing)
-- [Architecture & Design](#architecture--design)
-- [Learning New Technologies](#learning-new-technologies)
+</div>
+
+---
+
+## 🚀 Quick Jump Navigation
+
+<div align="center">
+
+### Choose Your Development Task
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="25%">
+
+**💻 Code Generation**
+
+<a href="#code-generation">
+<img src="https://img.shields.io/badge/Generate_Code-Start-FF6B6B?style=for-the-badge" alt="Code Generation"/>
+</a>
+
+*Write functions, APIs, components*
+
+</td>
+<td align="center" width="25%">
+
+**🐛 Debug & Fix**
+
+<a href="#debugging--troubleshooting">
+<img src="https://img.shields.io/badge/Debug_Issues-Fix-4ECDC4?style=for-the-badge" alt="Debug"/>
+</a>
+
+*Solve errors and optimize*
+
+</td>
+<td align="center" width="25%">
+
+**📚 Documentation**
+
+<a href="#documentation">
+<img src="https://img.shields.io/badge/Write_Docs-Document-45B7D1?style=for-the-badge" alt="Documentation"/>
+</a>
+
+*APIs, functions, guides*
+
+</td>
+<td align="center" width="25%">
+
+**🧪 Testing**
+
+<a href="#testing">
+<img src="https://img.shields.io/badge/Create_Tests-Test-9B59B6?style=for-the-badge" alt="Testing"/>
+</a>
+
+*Unit, integration, E2E*
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><strong>📋 Complete Development Toolkit</strong> <em>(Click to see all features)</em></summary>
+
+<br/>
+
+| **Development Area** | **What You'll Learn** | **Time Saved** |
+|---------------------|----------------------|----------------|
+| 💻 **Code Generation** | Functions, APIs, components, algorithms | 60-80% |
+| 🐛 **Debugging** | Error analysis, performance fixes | 40-60% |
+| 🔍 **Code Review** | Best practices, security, optimization | 50-70% |
+| 📚 **Documentation** | API docs, README files, comments | 70-90% |
+| 🧪 **Testing** | Unit tests, integration tests | 50-80% |
+| 🏗️ **Architecture** | Design patterns, system design | 30-50% |
+| 📖 **Learning** | New frameworks, languages | 40-60% |
+
+</details>
 
 ---
 
